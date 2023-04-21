@@ -12,7 +12,7 @@ function addUser(nome, sobrenome, idade, cb) {
   const fs = require('fs');
 
   // Ler o arquivo JSON existente
-  fs.readFile('user.json', 'utf8', (err, data) => {
+  fs.readFile('./dadosUser/user.json', 'utf8', (err, data) => {
     if (err && err.code !== 'ENOENT') {
       throw err;
     }
@@ -27,7 +27,7 @@ function addUser(nome, sobrenome, idade, cb) {
     usuarios.push(pessoa);
 
     // Escrever o array de usuários atualizado no arquivo JSON
-    fs.writeFile('user.json', JSON.stringify(usuarios), (err) => {
+    fs.writeFile('./dadosUser/user.json', JSON.stringify(usuarios), (err) => {
       if (err) {
         throw err;
       }
